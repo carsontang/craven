@@ -1,0 +1,46 @@
+<%= form_for(@dish, :html => { :class => "form-horizontal well" }) do |f| %>
+<% if @dish.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+
+  <ul>
+    <% @dish.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="control-group">
+  <%= f.label :name, :class => "control-label" %>
+  <div class="controls">
+    <%= f.text_field :name %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :category, :class => "control-label" %>
+  <div class="controls">
+    <%= f.text_field :category %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :price, :class => "control-label" %>
+  <div class="controls">
+    <%= f.text_field :price, :value => (number_with_precision(f.object.price, :precision => 2) || 0) %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :rating, :class => "control-label" %>
+  <div class="controls">
+    <%= f.number_field :rating %>
+  </div>
+</div>
+<div class="actions control-group">
+  <div class="controls">
+    <%= f.submit :class => "btn" %>
+  </div>
+</div>
+<% end %>

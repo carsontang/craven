@@ -1,16 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1>Listing dishes</h1>
 
-<address>
-  <strong><%= @restaurant.name %></strong>
-  <br>
-  <%= @restaurant.street %>
-  <br>
-  <%= @restaurant.city %>, <%= @restaurant.state %> <%= @restaurant.zipcode %>
-</address>
-<% if @dishes.any? %>
 <table class="table table-bordered table-striped">
   <tr>
     <th>Name</th>
+    <th>Category</th>
     <th>Price</th>
     <th>Rating</th>
     <th></th>
@@ -20,6 +13,7 @@
 <% @dishes.each do |dish| %>
   <tr>
     <td><%= link_to dish.name, dish %></td>
+    <td><%= dish.category %></td>
     <td><%= dish.price %></td>
     <td><%= dish.rating %></td>
     <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
@@ -27,9 +21,7 @@
   </tr>
 <% end %>
 </table>
-<% else %>
-<p>No dishes available. Add dishes!</p>
-<% end %>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<br />
+
+<%= link_to 'New Dish', new_dish_path %>

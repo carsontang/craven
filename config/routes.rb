@@ -1,4 +1,6 @@
 Craven::Application.routes.draw do
+  resources :dishes
+
   resources :restaurants
 
   get "static_pages/home"

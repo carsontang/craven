@@ -6,5 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create(name: "Maru Ichi", category: "Japanese", street: "368 Castro St", city: "Mountain View", state: "California", zipcode: 94043)
+maru_ichi = Restaurant.create(name: "Maru Ichi", category: "Japanese", street: "368 Castro St", city: "Mountain View", state: "California", zipcode: 94043)
 Restaurant.create(name: "Ramen House Ryowa", category: "Japanese", street: "859 Villa St", city: "Mountain View", state: "California", zipcode: 94041)
+Restaurant.create(name: "Hangen Szechuan Restaurant", category: "Chinese", street: "134 Castro St", city: "Mountain View", state: "California", zipcode: 94041)
+Restaurant.create(name: "Amarin Thai Cuisine", category: "Thai", street: "174 Castro St", city: "Mountain View", state: "California", zipcode: 94041)
+Restaurant.create(name: "Gombei Bento", category: "Japanese", street: "155 E Maude Ave", city: "Sunnyvale", state: "California", zipcode: 94085)
+Restaurant.create(name: "Pho Mai No 1", category: "Vietnamese", street: "82 S Abel St", city: "Milpitas", state: "California", zipcode: 95035)
+Restaurant.create(name: "Amarin Thai Cuisine", category: "Thai", street: "174 Castro St", city: "Mountain View", state: "California", zipcode: 94041)
+
+maru_ichi.dishes.create(name: "Tonkotsu Ramen", category: "Japanese", price: 8.99, rating: 5)
+maru_ichi.dishes.create(name: "Kuro Ramen Combo B", category: "Japanese", price: 8.99, rating: 5)

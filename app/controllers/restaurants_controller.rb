@@ -2,12 +2,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    if params[:query].present?
-      query_in_utf8 = params[:query].encode(Encoding::UTF_8)
-      @restaurants = Restaurant.search(query_in_utf8, load: true)
-    else
-      @restaurants = Restaurant.all
-    end
+    @restaurants = Restaurant.search(params)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +14,8 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id])
-
+    @dishes = @restaurant.dishes
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @restaurant }
@@ -30,6 +26,12 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/new.json
   def new
     @restaurant = Restaurant.new
+    @states = []
+    file = File.new('lib/states.txt', 'r')
+    file.each_line do |line|
+      @states << line
+    end
+    file.close
 
     respond_to do |format|
       format.html # new.html.erb

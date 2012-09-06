@@ -1,41 +1,54 @@
-<%= form_for(@restaurant) do |f| %>
+<%= form_for(@restaurant, :html => { :id => "new-restaurant-form", :class => "form-horizontal well" }) do |f| %>
   <% if @restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @restaurant.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :category %><br />
+  <div class="control-group">
+    <%= f.label :category, :class => "control-label" %>
+    <div class="controls">
     <%= f.text_field :category %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :street %><br />
+  <div class="control-group">
+    <%= f.label :street, :class => "control-label" %>
+    <div class="controls">
     <%= f.text_field :street %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :city %><br />
+  <div class="control-group">
+    <%= f.label :city, :class => "control-label" %>
+    <div class="controls">
     <%= f.text_field :city %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
+  <div class="control-group">
+    <%= f.label :state, :class => "control-label" %>
+    <div class="controls">
+    <%= select(:restaurant, "state", @states) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :zipcode %><br />
-    <%= f.number_field :zipcode %>
+  <div class="control-group">
+    <%= f.label :zipcode, :class => "control-label" %>
+    <div class="controls">
+    <%= f.text_field :zipcode %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions control-group">
+    <div class="controls">
+    <%= f.submit :class => "btn" %>
+  </div>
   </div>
 <% end %>
