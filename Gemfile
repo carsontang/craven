@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'bootstrap-sass', '2.0.4'
 gem 'bootswatch-rails'
 gem 'pg'
+gem 'rack-mini-profiler'
 gem 'tire'
 
 # Bundle edge Rails instead:
