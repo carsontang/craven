@@ -8,6 +8,10 @@
   <%= @restaurant.city %>, <%= @restaurant.state %> <%= @restaurant.zipcode %>
 </address>
 <% if @dishes.any? %>
+<ul class="restaurants">
+    <%= render @dishes %>
+</ul>
+<!--
 <table class="table table-bordered table-striped">
   <tr>
     <th>Name</th>
@@ -16,7 +20,6 @@
     <th></th>
     <th></th>
   </tr>
-
 <% @dishes.each do |dish| %>
   <tr>
     <td><%= link_to dish.name, dish %></td>
@@ -26,7 +29,7 @@
     <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
-</table>
+</table>-->
 <% else %>
 <p>No dishes available. Add dishes!</p>
 <% end %>

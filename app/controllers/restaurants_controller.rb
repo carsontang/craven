@@ -42,6 +42,12 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1/edit
   def edit
     @restaurant = Restaurant.find(params[:id])
+    @states = []
+    file = File.new('lib/states.txt', 'r')
+    file.each_line do |line|
+      @states << line
+    end
+    file.close
   end
 
   # POST /restaurants
