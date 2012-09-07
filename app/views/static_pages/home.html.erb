@@ -1,5 +1,7 @@
 <h2 id="search-page-logo">CRAVEN</h2><br/>
-<form id="search-page-box" class="form-search">
-  <input type="text" class="input-large search-query">
-  <button type="submit" class="btn">Find dish!</button>
-</form>	
+<%= form_tag restaurants_path, method: :get, id: "search-page-box", class: "form-search" do %>
+  <p>
+    <%= text_field_tag :query, params[:query], class: "input-large search-query" %>
+    <%= submit_tag "Find dish!", name: nil, class: "btn" %>
+  </p>
+<% end %>

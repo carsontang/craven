@@ -4,7 +4,7 @@
       <%= link_to "craven", '#', id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= render 'layouts/search_bar' %></li>
+          <li><% unless params[:controller] == 'static_pages' && params[:action] == 'home' %> <%= render 'layouts/search_bar' %> <% end %></li>
           <li><%= link_to "Home",    '#' %></li>
           <li><%= link_to "Restaurants", restaurants_path %></li>
           <li class="dropdown" id="menu1">
