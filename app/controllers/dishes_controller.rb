@@ -1,4 +1,6 @@
 class DishesController < ApplicationController
+  before_filter :authenticate_user!, except: [:show, :index]
+  
   # GET /dishes
   # GET /dishes.json
   def index
