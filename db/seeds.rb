@@ -16,3 +16,10 @@ Restaurant.create(name: "Amarin Thai Cuisine", category: "Thai", street: "174 Ca
 
 maru_ichi.dishes.create(name: "Tonkotsu Ramen", category: "Japanese", price: 8.99, rating: 5)
 maru_ichi.dishes.create(name: "Kuro Ramen Combo B", category: "Japanese", price: 8.99, rating: 5)
+
+queen_house = Restaurant.create(name: "Queen House Chinese Restaurant", category: "Chinese", street: "273 Castro St", city: "Mountain View", state: "California", zipcode: 94041)
+queen_house.dishes.create(name: "Taiwanese Combo Noodle Soup", category: "Chinese", price: 6.59, rating: 1)
+queen_house.dishes.create(name: "Szechwan Beef Noodle Soup", category: "Chinese", price: 6.59, rating: 3)
+queen_house.dishes.create(name: "Szechwan Beef Tendon Noodle Soup", category: "Chinese", price: 6.59, rating: 4)
+queen_house.dishes.create(name: "Szechwan Beef and Tendon Noodle Soup", category: "Chinese", price: 7.59, rating: 5)
+queen_house.dishes.create(name: "Mandarin Deluxe Chow Mein", category: "Chinese", price: 7.59, rating: 2)

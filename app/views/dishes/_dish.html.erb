@@ -1,14 +1,18 @@
 <li>
 	<address>
-		<strong><%= dish.name %></strong>
-    <br />
-    <% for i in 1..dish.rating %>
-  ★
-  <% end %>
-  <% for i in 1..(5 - dish.rating) %>
-  ☆
-  <% end %>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    $<%= dish.price %>
+    <div class="span6">
+      <strong><%= dish.name %></strong>
+    </div>
+    <div class="span2">
+      <% for i in 1..dish.rating %>
+      ★
+      <% end %>
+      <% for i in 1..(5 - dish.rating) %>
+      ☆
+      <% end %>
+    </div>
+    <div class="span2">
+      $<%= dish.price %>
+    </div>
   </address>
 </li>
