@@ -1,7 +1,7 @@
 <li>
 	<address>
     <div class="span6">
-      <strong><%= dish.name %></strong>
+      <strong><%= link_to dish.name, dish %></strong>
     </div>
     <div class="span2">
       <% for i in 1..dish.rating %>

@@ -1,0 +1,21 @@
+<%= form_for(@review) do |f| %>
+<div class="span6">
+    <%= f.hidden_field :dish_id %>
+    <%= f.text_area :review, placeholder: "Write a review...", style: "resize:none; width:450px;", rows: 10%>
+  <%= f.submit "Post review", class: "btn btn-large btn-primary pull-right" %>
+</div>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+<p><%= params[:controller] %>/<%= params[:action] %>/<%= params[:id] %></p>
+
+<div class="span3">
+<p><%= @dish.name %></p>
+<p><%= @dish.category %></p>
+<p>$<%= @dish.price %></p>
+<p><%= @dish.rating %></p>
+</div>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<% end %>
+<%= link_to 'Back', dishes_path %>

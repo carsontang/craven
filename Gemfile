@@ -7,9 +7,7 @@ gem 'devise'
 gem 'pg'
 gem 'rack-mini-profiler'
 gem 'tire'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'thin'
 
 group :development, :test do
   gem 'rspec-rails'

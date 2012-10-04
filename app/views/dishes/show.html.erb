@@ -1,27 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @dish.name %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @dish.category %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @dish.price %>
-</p>
-
-<p>
-  <b>Rating:</b>
-  <%= @dish.rating %>
-</p>
-
-
-<% if user_signed_in? %>
-<%= link_to 'Edit', edit_dish_path(@dish) %> |
-<% end %>
-<%= link_to 'Back', dishes_path %>
+<div class="span6">
+  <div class="row">
+    <aside class="span3 well">
+      <section>
+        <address>
+          <h2><strong><%= @dish.name %></strong></h2>
+          <h2>$<%= @dish.price %></h2>
+          <h2> <% for i in 1..@dish.rating %> ★ <% end %><% for i in 1..(5 - @dish.rating) %> ☆<% end %></h2>
+        </address>
+      </section>
+    </aside>
+    <aside class="span2 well">
+      <img src="http://www.ramenramenramen.net/wp-images/santa_tonkotsu_ramen.jpg" /><br/><br/>
+      <img src="http://farm5.static.flickr.com/4041/4578961492_4ebc412517.jpg" />
+    </aside>
+  </div>
+  <% if user_signed_in? %>
+  <div class="row well">
+    <%= render 'reviews/form', :dish => @dish %>
+  </div>
+  <% else %>
+  <div class="row well">
+    <p><%= link_to "Sign in ", new_user_session_path %>to write a review.</p>
+    <p>Eventually, allow user to write a review, but once he/she posts, he/she is forced
+      to sign in</p>
+  </div>
+  <% end %>
+</div>
+<div class="span4">
+  <aside class="well">
+    <ul class="restaurants">
+      <% @reviews.each do |review| %>
+      <li><%= review.rating %> <%= review.user.email %><br /><i><%= review.created_at %></i><br /><br /><%= review.review %></li>
+      <% end %>
+    </ul>
+  </aside>
+</div>

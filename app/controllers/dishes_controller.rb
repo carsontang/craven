@@ -16,11 +16,10 @@ class DishesController < ApplicationController
   # GET /dishes/1.json
   def show
     @dish = Dish.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @dish }
-    end
+    current_dish = @dish
+    # 
+    @review = current_user.reviews.build if user_signed_in?
+    @reviews = @dish.reviews
   end
 
   # GET /dishes/new
