@@ -4,12 +4,7 @@
       <strong><%= link_to dish.name, dish %></strong>
     </div>
     <div class="span2">
-      <% for i in 1..dish.rating %>
-      ★
-      <% end %>
-      <% for i in 1..(5 - dish.rating) %>
-      ☆
-      <% end %>
+      <%= dish.rating %>
     </div>
     <div class="span2">
       $<%= dish.price %>

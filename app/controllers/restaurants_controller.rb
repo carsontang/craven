@@ -16,7 +16,10 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @dishes = @restaurant.dishes
-    
+    # @dish = @dishes.build
+    # current problem: when you build a new dish, rendering the restaurant's dish
+    # will not work because the dish's range is incomplete
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @restaurant }

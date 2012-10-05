@@ -16,22 +16,28 @@
   </div>
   <% if user_signed_in? %>
   <div class="row well">
-    <%= render 'reviews/form', :dish => @dish %>
+    <%= render 'reviews/form', dish: @dish %>
   </div>
   <% else %>
   <div class="row well">
     <p><%= link_to "Sign in ", new_user_session_path %>to write a review.</p>
     <p>Eventually, allow user to write a review, but once he/she posts, he/she is forced
       to sign in</p>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-<div class="span4">
-  <aside class="well">
-    <ul class="restaurants">
-      <% @reviews.each do |review| %>
-      <li><%= review.rating %> <%= review.user.email %><br /><i><%= review.created_at %></i><br /><br /><%= review.review %></li>
-      <% end %>
-    </ul>
-  </aside>
-</div>
+  <div class="span4">
+    <aside class="well">
+      <ul class="restaurants">
+        <% @reviews.each do |review| %>
+        <li><%= review.rating %> <%= review.user.email %><br /><i>Posted <%= time_ago_in_words(review.created_at) %> ago.</i><br /><br /><%= review.review %><br />
+          <% if current_user?(review.user) %>
+          <%= link_to "delete", review, method: :delete,
+          data: { confirm: 'You sure?' },
+          title: review.review %>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </aside>
+  </div>

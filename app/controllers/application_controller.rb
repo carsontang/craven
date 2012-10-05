@@ -1,12 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-    def current_dish=(dish)
-    session[:remember_token] = dish.id
-  end
+  include ApplicationHelper
 
-  def current_dish
-    @current_dish ||= Dish.find(session[:remember_token])
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
   end
-
-  # read about sessions, why isn't session being stored?
 end

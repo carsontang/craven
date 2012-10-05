@@ -15,7 +15,7 @@
     <%= f.hidden_field :dish_id, value: @dish.id %>
   </div>
 
-  <%= f.select :rating, options_for_select([["Select Rating", ""], "★★★★★", "★★★★☆", "★★★☆☆", "★★☆☆☆", "★☆☆☆☆"]) %>
+  <%= f.select :rating, options_for_select([["★★★★★", "5"], ["★★★★☆", "4"], ["★★★☆☆", "3"], ["★★☆☆☆", "2"], ["★☆☆☆☆", 1]]) %>
 
   <div class="field">
     <%= f.text_area :review, :id => "review-form", :rows => 10 %>
