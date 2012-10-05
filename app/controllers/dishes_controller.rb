@@ -16,8 +16,6 @@ class DishesController < ApplicationController
   # GET /dishes/1.json
   def show
     @dish = Dish.find_by_slug(params[:id]) || not_found
-    current_dish = @dish
-    # 
     @review = current_user.reviews.build if user_signed_in?
     @reviews = @dish.reviews
   end
