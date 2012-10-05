@@ -1,7 +1,7 @@
 <li>
 	<address>
     <div class="span6">
-      <strong><%= link_to dish.name, dish %></strong>
+      <strong><%= link_to dish.name, :controller => "dishes", :action => "show", :id => dish.slug %></strong>
     </div>
     <div class="span2">
       <%= dish.rating %>
