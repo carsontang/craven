@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find_by_slug(params[:id]) || not_found
     @dishes = @restaurant.dishes
     # @dish = @dishes.build
     # current problem: when you build a new dish, rendering the restaurant's dish

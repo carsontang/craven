@@ -23,3 +23,5 @@ queen_house.dishes.create(name: "Szechwan Beef Noodle Soup", category: "Chinese"
 queen_house.dishes.create(name: "Szechwan Beef Tendon Noodle Soup", category: "Chinese", price: 6.59, rating: 4)
 queen_house.dishes.create(name: "Szechwan Beef and Tendon Noodle Soup", category: "Chinese", price: 7.59, rating: 5)
 queen_house.dishes.create(name: "Mandarin Deluxe Chow Mein", category: "Chinese", price: 7.59, rating: 2)
+
+dish_dash = Restaurant.create(name: "DishDash", category: "Middle Eastern", street: "190 S Murphy Ave", city: "Sunnyvale", state: "California", zipcode: 94086)

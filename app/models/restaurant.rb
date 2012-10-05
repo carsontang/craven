@@ -1,7 +1,9 @@
 class Restaurant < ActiveRecord::Base
+  include RestaurantsHelper
   attr_accessible :category, :city, :name, :state, :street, :zipcode
   has_many :dishes
 
+  before_save :generate_slug
   after_touch() { tire.update_index }
   self.include_root_in_json = false
 
@@ -55,4 +57,9 @@ class Restaurant < ActiveRecord::Base
       end if params[:query].present?
     end
   end
+
+  private
+    def generate_slug
+      self.slug = generate_restaurant_slug(self)
+    end
 end

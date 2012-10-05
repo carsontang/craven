@@ -1,6 +1,6 @@
 <li>
 	<address>
-		<strong><%= link_to restaurant.name, restaurant %></strong>
+		<strong><%= link_to restaurant.name, :controller => "restaurants", :action => "show", :id => restaurant.slug %></td></strong>
 		<br>
 		<%= restaurant.street %>
 		<br>
